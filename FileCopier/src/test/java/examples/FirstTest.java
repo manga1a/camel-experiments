@@ -1,7 +1,6 @@
 package examples;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.Route;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.junit4.CamelTestSupport;
