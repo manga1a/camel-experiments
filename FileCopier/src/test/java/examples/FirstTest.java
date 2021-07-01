@@ -19,13 +19,7 @@ public class FirstTest extends CamelTestSupport {
 
     @Override
     protected RoutesBuilder createRouteBuilder() throws Exception {
-        return new RouteBuilder() {
-            @Override
-            public void configure() throws Exception {
-                from("file://target/inbox")
-                        .to("file://target/outbox");
-            }
-        };
+        return new FileMoveRoute();
     }
 
     @Test
