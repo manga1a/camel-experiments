@@ -1,10 +1,8 @@
 package examples.routing;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.camel.CamelContext;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
@@ -16,11 +14,7 @@ public class FileToJmsDynamicToTest extends CamelTestSupport {
     protected CamelContext createCamelContext() throws Exception {
         CamelContext context =  super.createCamelContext();
 
-        // connect to embedded ActiveMQ JMS broker
-        ConnectionFactory connectionFactory =
-                new ActiveMQConnectionFactory("vm://localhost");
-        context.addComponent("jms",
-                JmsComponent.jmsComponentAutoAcknowledge(connectionFactory));
+        ConnectionHelper.createActiveMqConnection(context);
 
         return context;
     }
